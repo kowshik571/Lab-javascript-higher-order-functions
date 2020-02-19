@@ -32,13 +32,27 @@ Take an example array. We will be using the below array for reference.
 ```
 const foods = [pizza, burger, fingerChips, donuts, springRoll];
 
+solution:
+const food=["pizza", "burger", "fingerShips", "donuts", "springRoll"];
+undefined
+food.splice(2,0,"noodles","icecream")
+[]
+console.log(food)
+VM248:1 (7) ["pizza", "burger", "noodles", "icecream", "fingerShips", "donuts", "springRoll"]
+
 ```
 Create a new array named as `modifiedFood` and also create a `slice()` method.The `slice()` method should return the selected elements in an array, as a new array object. This method starts slicing the array from the given start argument and ends the slicing operation one element before the given second argument.
 
 ```
+co
+
 Expected output: [burger, fingerShips, donuts]
 ```
-
+solution:
+const food=["pizza", "burger", "fingerShips", "donuts", "springRoll"];
+var modifiedfood=food.slice(1, 4);
+console.log(modifiedfood)
+[burger, fingerShips, donuts]
 
 ### Function #2: Array Splice
 
@@ -51,7 +65,20 @@ const foods = [pizza, burger, fingerShips, donuts, springRoll];
 
 Expected output: [pizza, burger, noodles, icecream, fingerShips, donuts, springRoll];
 ```
-
+solution:
+const food=["pizza", "burger", "fingerShips", "donuts", "springRoll"];
+undefined
+food.splice(2,0,"noodles","icecream")
+[]
+console.log(food)
+VM248:1 (7) ["pizza", "burger", "noodles", "icecream", "fingerShips", "donuts", "springRoll"]
+ 2)
+const food=["pizza", "burger", "fingerShips", "donuts", "springRoll"];
+var modified11=food.splice(2)
+undefined
+console.log(modified11)
+VM785:1 (5) ["noodles", "icecream", "fingerShips", "donuts", "springRoll"]
+undefined
 
 ### Function #3: Filter
 
@@ -63,6 +90,11 @@ Now, create a function `isEven()` which takes `numberArray` as argument and _ret
 Take numberArray as
 
 const numberArray = [12,324,213,4,2,3,45,4234];
+var evennumbers = numberArray.filter(function(num){ return num&2; });
+undefined
+console.log(evennumbers)
+VM1252:1 (3) [2, 3, 4234]
+
 ```
 
 Next, let's build on top of this. Create another functon called `isPrime()` with takes same `numberArray` as argument and _returns all prime numbers from the above given array_.
@@ -73,7 +105,15 @@ Next, let's build on top of this. Create another functon called `isPrime()` with
 We can now reuse the `isPrime()` function in conjunction with reject to get all the non-prime numbers in the array. The reject function does the opposite of the filter function. It returns an array with all the elements that do not satisfy the condition.
 
 Create a function `nonPrime()` which takes `numberArray` as argument and _return all non-prime numbers from the above given array in Function #3_.
+var numArray = [12,324,213,4,2,3,45,4234]
 
+numArray = numArray.filter((number) => {
+  for (var i = 2; i <= Math.sqrt(number); i++) {
+    if (number % i === 0) return false;
+  }
+  return true;
+});
+(2) [2, 3]
 
 ### Function #5: Lambda
 
@@ -81,7 +121,11 @@ When defining short functions, it's convenient to use an alternative syntax call
 
 Now, rewrite the function `isEven()` by using the concept of Lambda Function.
 
-
+const numberArray = [12,324,213,4,2,3,45,4234];
+var evennumbers = numberarray.reduce(function(num){ return num&2; });
+undefined
+console.log(evennumbers)
+VM1252:1 (3) [2, 3, 4234]
 ### Function #6: Map
 
 Another very useful higher order function is map. It takes a function and applies it to all the elements of an array.
@@ -92,7 +136,11 @@ Now, create a function `findSquareOfNumbers()` which takes the following array c
 ```
 const myArray = [11, 34, 20, 5, 53, 16];
 ```
-
+const numberArray4 = [11, 34, 20, 5, 53, 16];
+var squareroot = numberArray4.map(function(num){ return num*num });
+undefined
+console.log(squareroot)
+VM302:1 (6) [121, 1156, 400, 25, 2809, 256]
 ### Function #7: Reduce
 
 Reduce is the last higher order function we are going to discuss and it's also the most powerful one. In fact, you can implement any list transformation operation with reduce.
@@ -102,6 +150,12 @@ Reduce takes a callback function and a starting value. The callback function tak
 Create a function `multiply()` which takes an argument of `myArray` which holds the values as `[2, 3, 5, 10]` and _returns multiplication value of all numbers in the given array_.
 
 Let's expand our knowledge by `implementing map with reduce`.
+
+const numberArray8 = [2, 3, 5, 10];
+var mulitiply = numberArray8.reduce(function(num){ return num*num });
+undefined
+console.log(mulitiply)
+256
 
 Take the function explained in the above task of `map` and try is by implementing the same by using `reduce`.
 
